@@ -13,7 +13,7 @@ def browser():
     dr = webdriver.Firefox(service=firefox_service(log_output="firefox_log.log"))
     dr.maximize_window()
     dr.implicitly_wait(5)
-    dr.get("http://1.14.44.5:8080/woniusales/")
+    dr.get("http://192.168.12.51:8080/woniusales/")
     yield dr
     time.sleep(2)
     dr.quit()
@@ -33,5 +33,5 @@ def admin_login(browser):
 
 @pytest.fixture(scope="session")
 def db():
-    db = DBClass(host="1.14.44.5", port=3306, user="root", password="Luoj123!@#", db="woniusales")
+    db = DBClass(host="192.168.12.51", port=3306, user="root", password="Luoj123!@#", db="woniusales")
     yield db
